@@ -1,7 +1,15 @@
 <?php
+/**
+ * @package     HelloWorld.Administrator
+ * @subpackage  com_helloworld
+ *
+ * @copyright   Copyright (C) 2005 - 2014 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
 
 // No direct access to this file
 defined('_JEXEC') or die;
+
 /**
  * General Controller of HelloWorld component
  *
@@ -10,20 +18,10 @@ defined('_JEXEC') or die;
 class HelloWorldController extends JControllerLegacy
 {
 	/**
-	 * display task
+	 * The default view for the display method.
 	 *
-	 * @param   boolean  $cachable   [description]
-	 * @param   boolean  $urlparams  [description]
-	 *
-	 * @return  [type]               [description]
+	 * @var string
+	 * @since 12.2
 	 */
-	function display($cachable = false, $urlparams = false)
-	{
-		// Set default view if not set
-		$input = JFactory::getApplication()->input;
-		$input->set('view', $input->getCmd('view', 'HelloWorlds'));
-
-		// All parent behavior
-		parent::display($cachable);
-	}
+	protected $default_view = 'helloworlds';
 }

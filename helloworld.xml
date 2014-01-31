@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="3.2.0" method="upgrade">
-
 	<name>COM_HELLOWORLD</name>
 	<!-- The following elements are optional and free of formatting constraints -->
-	<creationDate>January 2014</creationDate>
-	<author>John Doe</author>
-	<authorEmail>john.doe@example.org</authorEmail>
+	<creationDate>31 January 2014</creationDate>
+	<author>Gunjan Patel</author>
+	<authorEmail>gunjan.ce2009@gmail.com</authorEmail>
 	<authorUrl>http://www.example.org</authorUrl>
 	<copyright>Copyright Info</copyright>
 	<license>License Info</license>

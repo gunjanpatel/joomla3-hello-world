@@ -1,75 +1,94 @@
 <?php
-// No direct access to this file
-defined('_JEXEC') or die('Restricted access');
+/**
+ * @package     HelloWorld.Administrator
+ * @subpackage  com_helloworld
+ *
+ * @copyright   Copyright (C) 2005 - 2014 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
 
-// import Joomla view library
-jimport('joomla.application.component.view');
+// No direct access to this file
+defined('_JEXEC') or die;
 
 /**
  * HelloWorld View
+ *
+ * @since  0.0.1
  */
 class HelloWorldViewHelloWorld extends JViewLegacy
 {
-        /**
-         * View form
-         *
-         * @var         form
-         */
-        protected $form = null;
+	/**
+	 * View form
+	 *
+	 * @var         form
+	 */
+	protected $form = null;
 
-        /**
-         * display method of Hello view
-         * @return void
-         */
-        public function display($tpl = null)
-        {
-                // get the Data
-                $form = $this->get('Form');
-                $item = $this->get('Item');
+	/**
+	 * Display the Hello World view
+	 *
+	 * @param   string  $tpl  The name of the template file to parse; automatically searches through the template paths.
+	 *
+	 * @return  void
+	 */
+	public function display($tpl = null)
+	{
+		// Get the Data
+		$form = $this->get('Form');
+		$item = $this->get('Item');
 
-                // Check for errors.
-                if (count($errors = $this->get('Errors')))
-                {
-                        JError::raiseError(500, implode('<br />', $errors));
-                        return false;
-                }
-                // Assign the Data
-                $this->form = $form;
-                $this->item = $item;
+		// Check for errors.
+		if (count($errors = $this->get('Errors')))
+		{
+			JError::raiseError(500, implode('<br />', $errors));
 
-                // Set the toolbar
-                $this->addToolBar();
+			return false;
+		}
 
-                // Display the template
-                parent::display($tpl);
+		// Assign the Data
+		$this->form = $form;
+		$this->item = $item;
 
-                // Set the document
-                $this->setDocument();
-        }
+		// Set the toolbar
+		$this->addToolBar();
 
-        /**
-         * Setting the toolbar
-         */
-        protected function addToolBar()
-        {
-                $input = JFactory::getApplication()->input;
-                $input->set('hidemainmenu', true);
-                $isNew = ($this->item->id == 0);
-                JToolBarHelper::title($isNew ? JText::_('COM_HELLOWORLD_MANAGER_HELLOWORLD_NEW')
-                                             : JText::_('COM_HELLOWORLD_MANAGER_HELLOWORLD_EDIT'), 'helloworld');
-                JToolBarHelper::save('helloworld.save');
-                JToolBarHelper::cancel('helloworld.cancel', $isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE');
-        }
-        /**
-         * Method to set up the document properties
-         *
-         * @return void
-         */
-        protected function setDocument()
-        {
-                $isNew = ($this->item->id < 1);
-                $document = JFactory::getDocument();
-                $document->setTitle($isNew ? JText::_('COM_HELLOWORLD_HELLOWORLD_CREATING')
-                                           : JText::_('COM_HELLOWORLD_HELLOWORLD_EDITING'));
-        }
+		// Display the template
+		parent::display($tpl);
+
+		// Set the document
+		$this->setDocument();
+	}
+
+	/**
+	 * Add the page title and toolbar.
+	 *
+	 * @return  void
+	 *
+	 * @since   1.6
+	 */
+	protected function addToolBar()
+	{
+		$input = JFactory::getApplication()->input;
+
+		// Hide Joomla Administrator Main menu
+		$input->set('hidemainmenu', true);
+
+		$isNew = ($this->item->id == 0);
+
+		if ($isNew)
+		{
+			$title = JText::_('COM_HELLOWORLD_MANAGER_HELLOWORLD_NEW');
+		}
+		else
+		{
+			$title = JText::_('COM_HELLOWORLD_MANAGER_HELLOWORLD_EDIT');
+		}
+
+		JToolBarHelper::title($title, 'helloworld');
+		JToolBarHelper::save('helloworld.save');
+		JToolBarHelper::cancel(
+			'helloworld.cancel',
+			$isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE'
+		);
+	}
 }

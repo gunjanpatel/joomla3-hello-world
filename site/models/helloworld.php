@@ -1,7 +1,15 @@
 <?php
+/**
+ * @package     HelloWorld.Administrator
+ * @subpackage  com_helloworld
+ *
+ * @copyright   Copyright (C) 2005 - 2014 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
 
 // No direct access to this file
 defined('_JEXEC') or die;
+
 /**
  * HelloWorld Model
  *
@@ -15,13 +23,15 @@ class HelloWorldModelHelloWorld extends JModelItem
 	protected $messages;
 
 	/**
-	 * Returns a reference to the a Table object, always creating it.
+	 * Method to get a table object, load it if necessary.
 	 *
-	 * @param   string  $type    [description]
-	 * @param   string  $prefix  [description]
-	 * @param   array   $config  [description]
+	 * @param   string  $type    The table name. Optional.
+	 * @param   string  $prefix  The class prefix. Optional.
+	 * @param   array   $config  Configuration array for model. Optional.
 	 *
-	 * @return  [type]           [description]
+	 * @return  JTable  A JTable object
+	 *
+	 * @since   1.6
 	 */
 	public function getTable($type = 'HelloWorld', $prefix = 'HelloWorldTable', $config = array())
 	{
@@ -31,9 +41,9 @@ class HelloWorldModelHelloWorld extends JModelItem
 	/**
 	 * Get the message
 	 *
-	 * @param   integer  $id  [description]
+	 * @param   integer  $id  Greeting Id
 	 *
-	 * @return  [type]        [description]
+	 * @return  string        Fetched String from Table for relevant Id
 	 */
 	public function getMsg($id = 1)
 	{

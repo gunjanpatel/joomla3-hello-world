@@ -1,13 +1,14 @@
 <?php
 /**
- * @package     Helloworld.Site
- * @subpackage  com_content
+ * @package     HelloWorld.Administrator
+ * @subpackage  com_helloworld
  *
- * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2014 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 // No direct access to this file
 defined('_JEXEC') or die;
+
 /**
  * HelloWorldList Model
  *
@@ -22,15 +23,13 @@ class HelloWorldModelHelloWorlds extends JModelList
 	 */
 	protected function getListQuery()
 	{
-		// Create a new query object.
-		$db    = JFactory::getDBO();
+		// Initialize variables.
+		$db    = JFactory::getDbo();
 		$query = $db->getQuery(true);
 
-		// Select some fields
-		$query->select('id,greeting');
-
-		// From the hello table
-		$query->from('#__helloworld');
+		// Create the base select statement.
+		$query->select('id,greeting')
+			->from($db->quoteName('#__helloworld'));
 
 		return $query;
 	}

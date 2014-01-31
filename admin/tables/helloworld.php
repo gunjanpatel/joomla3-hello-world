@@ -1,16 +1,13 @@
 <?php
 /**
- * @package     Helloworld.Site
- * @subpackage  com_content
+ * @package     HelloWorld.Administrator
+ * @subpackage  com_helloworld
  *
- * @copyright   Copyright (C) 2005 - 2013 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2014 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 // No direct access
 defined('_JEXEC') or die;
-
-// Import Joomla table library
-jimport('joomla.database.table');
 
 /**
  * Hello Table class
@@ -22,7 +19,7 @@ class HelloWorldTableHelloWorld extends JTable
 	/**
 	 * Constructor
 	 *
-	 * @param   [type]  &$db  [description]
+	 * @param   JDatabaseDriver  &$db  A database connector object
 	 */
 	function __construct(&$db)
 	{
