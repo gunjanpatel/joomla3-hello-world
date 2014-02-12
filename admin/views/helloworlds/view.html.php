@@ -24,7 +24,7 @@ class HelloWorldViewHelloWorlds extends JViewLegacy
 	 *
 	 * @return  void
 	 */
-	function display($tpl = null)
+	public function display($tpl = null)
 	{
 		// Get data from the model
 		$this->items		= $this->get('Items');

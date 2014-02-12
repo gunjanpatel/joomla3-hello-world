@@ -24,7 +24,7 @@ class HelloWorldViewHelloWorld extends JViewLegacy
 	 *
 	 * @return  void
 	 */
-	function display($tpl = null)
+	public function display($tpl = null)
 	{
 		// Assign data to the view
 		$this->msg = $this->get('Msg');
