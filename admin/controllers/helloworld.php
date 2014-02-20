@@ -1,10 +1,7 @@
 <?php
 
 // No direct access to this file
-defined('_JEXEC') or die('Restricted access');
-
-// Import Joomla controllerform library
-jimport('joomla.application.component.controllerform');
+defined('_JEXEC') or die;
 
 /**
  * HelloWorld Controller

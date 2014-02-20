@@ -13,22 +13,20 @@ jimport('joomla.application.component.modellist');
  */
 class HelloWorldModelHelloWorlds extends JModelList
 {
-		/**
-		 * Method to build an SQL query to load the list data.
-		 *
-		 * @return      string  An SQL query
-		 */
-		protected function getListQuery()
-		{
-				// Create a new query object.
-				$db = JFactory::getDBO();
-				$query = $db->getQuery(true);
+	/**
+	 * Method to build an SQL query to load the list data.
+	 *
+	 * @return      string  An SQL query
+	 */
+	protected function getListQuery()
+	{
+		// Initialiase variables.
+		$db    = JFactory::getDbo();
+		$query = $db->getQuery(true);
+		$query->select('*')
+		->from($db->qn('#__helloworld_category', 'c'))
+		->where($db->qn('parent_id') . '!= 0');
 
-				// Select some fields from the hello table
-				$query
-					->select('id,greeting')
-					->from('#__helloworld');
-
-				return $query;
-		}
+		return $query;
+	}
 }

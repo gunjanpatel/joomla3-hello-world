@@ -3,9 +3,6 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
-// Import Joomla view library
-jimport('joomla.application.component.view');
-
 /**
  * HelloWorlds View
  *
@@ -58,9 +55,17 @@ class HelloWorldViewHelloWorlds extends JViewLegacy
 		{
 			// Reflect number of items in title!
 			JToolBarHelper::title(JText::_('COM_HELLOWORLD_MANAGER_HELLOWORLDS') . ($total?' <span style ="font-size: 0.5em; vertical-align: middle;">(' . $total . ')</span>':''), 'helloworld');
+			JToolBarHelper::addNew('helloworld.add');
 			JToolBarHelper::deleteList('', 'helloworlds.delete');
 			JToolBarHelper::editList('helloworld.edit');
-			JToolBarHelper::addNew('helloworld.add');
+			JToolbarHelper::publish('helloworld.publish', 'JTOOLBAR_PUBLISH', true);
+			JToolbarHelper::unpublish('helloworld.unpublish', 'JTOOLBAR_UNPUBLISH', true);
+			JToolbarHelper::archiveList('helloworld.archive');
+			JToolBarHelper::trash('helloworld.trash');
+			JToolbarHelper::checkin('helloworld.checkin');
+			JToolbarHelper::preferences('com_helloworld');
+			JToolbarHelper::help('JHELP_COMPONENTS_TAGS_MANAGER');
+
 		}
 
 		/**

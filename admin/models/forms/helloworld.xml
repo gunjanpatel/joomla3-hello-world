@@ -1,18 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <form>
-        <fieldset>
-                <field
-                        name="id"
-                        type="hidden"
-                />
-                <field
-                        name="greeting"
-                        type="text"
-                        label="COM_HELLOWORLD_HELLOWORLD_GREETING_LABEL"
-                        description="COM_HELLOWORLD_HELLOWORLD_GREETING_DESC"
-                        size="40"
-                        class="inputbox"
-                        default=""
-                />
-        </fieldset>
+	<fieldset>
+		<field
+				name="id"
+				type="hidden"
+				/>
+		<field
+				name="greeting"
+				type="text"
+				label="COM_HELLOWORLD_HELLOWORLD_GREETING_LABEL"
+				description="COM_HELLOWORLD_HELLOWORLD_GREETING_DESC"
+				size="40"
+				class="inputbox"
+				default=""
+				/>
+	</fieldset>
+
+	<fields name="params">
+                <fieldset
+                        name="params"
+                        label="JGLOBAL_FIELDSET_DISPLAY_OPTIONS"
+                >
+                        <field
+                                name="show_category"
+                                type="list"
+                                label="COM_HELLOWORLD_HELLOWORLD_FIELD_SHOW_CATEGORY_LABEL"
+                                description="COM_HELLOWORLD_HELLOWORLD_FIELD_SHOW_CATEGORY_DESC"
+                                default=""
+                        >
+                                <option value="">JGLOBAL_USE_GLOBAL</option>
+                                <option value="0">JHIDE</option>
+                                <option value="1">JSHOW</option>
+                        </field>
+                </fieldset>
+        </fields>
 </form>
