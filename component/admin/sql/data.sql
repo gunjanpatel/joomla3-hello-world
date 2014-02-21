@@ -1,0 +1,1 @@
+INSERT INTO `#__helloworld_category` (`id`, `parent_id`, `lft`, `rgt`, `level`, `title`, `alias`, `access`, `path`, `published`, `checked_out`, `checked_out_time`, `created_user_id`, `created_time`, `image`) VALUES (1, 0, 0, 15, 0, 'root', 'root', 0, '', 0, 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', '');
