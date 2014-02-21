@@ -98,13 +98,13 @@
            </fileset>
        </copy> -->
 
-        <!-- Media -->
-        <!-- <echo message="Copying media folder..." />
-        <copy todir="${www.dir}/media" overwrite="true">
-            <fileset dir="${src}/media">
-                <include name="**" />
-            </fileset>
-        </copy> -->
+       <!--  Media
+       <echo message="Copying media folder..." />
+       <copy todir="${www.dir}/media" overwrite="true">
+           <fileset dir="${src}/media">
+               <include name="**" />
+           </fileset>
+       </copy> -->
 
         <!-- Plugins -->
         <!-- <echo message="Copying plugins..." />
@@ -113,5 +113,6 @@
                 <include name="**" />
             </fileset>
         </copy> -->
+
     </target>
 </project>
