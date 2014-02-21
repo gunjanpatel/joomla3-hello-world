@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+        <fieldset
+                name="greetings"
+                label="COM_HELLOWORLD_CONFIG_GREETING_SETTINGS_LABEL"
+                description="COM_HELLOWORLD_CONFIG_GREETING_SETTINGS_DESC"
+        >
+                <field
+                        name="contact_layout" type="componentlayout"
+                        label="JGLOBAL_FIELD_LAYOUT_LABEL"
+                        description="JGLOBAL_FIELD_LAYOUT_DESC"
+                        menuitems="true"
+                        extension="com_contact"
+                        view="contact"
+                />
+
+                <field name="show_contact_category"
+                        type="list"
+                        default="hide"
+                        label="COM_CONTACT_FIELD_CONTACT_SHOW_CATEGORY_LABEL"
+                        description="COM_HELLOWORLD_FIELD_HELLOWORLD_SHOW_CATEGORY_DESC"
+                >
+                        <option value="hide">JHIDE</option>
+                        <option value="show_no_link">COM_CONTACT_FIELD_VALUE_NO_LINK
+                        </option>
+                        <option value="show_with_link">COM_CONTACT_FIELD_VALUE_WITH_LINK
+                        </option>
+                </field>
+
+                <field name="show_contact_list"
+                        type="radio"
+                        class="btn-group btn-group-yesno"
+                        default="0"
+                        description="COM_CONTACT_FIELD_CONTACT_SHOW_LIST_DESC"
+                                label="COM_CONTACT_FIELD_CONTACT_SHOW_LIST_LABEL"
+                >
+                        <option value="1">JSHOW</option>
+                        <option value="0">JHIDE</option>
+                </field>
+
+                <field
+                        name="save_history"
+                        type="radio"
+                        class="btn-group btn-group-yesno"
+                        default="0"
+                        label="JGLOBAL_SAVE_HISTORY_OPTIONS_LABEL"
+                        description="JGLOBAL_SAVE_HISTORY_OPTIONS_DESC"
+                        >
+                        <option value="1">JYES</option>
+                        <option value="0">JNO</option>
+                </field>
+
+                        <field name="show_name"
+                        type="radio"
+                        class="btn-group btn-group-yesno"
+                        default="1"
+                        label="COM_HELLOWORLD_FIELD_PARAMS_NAME_LABEL"
+                        description="COM_HELLOWORLD_FIELD_PARAMS_NAME_DESC"
+                >
+                        <option value="1">JSHOW</option>
+                        <option value="0">JHIDE</option>
+                </field>
+
+                <field name="show_position"
+                        type="radio"
+                        class="btn-group btn-group-yesno"
+                        default="1"
+                        label="COM_HELLOWORLD_FIELD_PARAMS_HELLOWORLD_POSITION_LABEL"
+                        description="COM_HELLOWORLD_FIELD_PARAMS_HELLOWORLD_POSITION_DESC"
+                >
+                        <option value="1">JSHOW</option>
+                        <option value="0">JHIDE</option>
+                </field>
+
+
+                <field name="show_email"
+                        type="radio"
+                        class="btn-group btn-group-yesno"
+                        default="0"
+                        label="JGLOBAL_EMAIL"
+                        description="COM_CONTACT_FIELD_PARAMS_CONTACT_E_MAIL_DESC"
+                >
+                        <option value="1">JSHOW</option>
+                        <option value="0">JHIDE</option>
+                </field>
+        </fieldset>
+
+        <fieldset name="permissions"
+                label="JCONFIG_PERMISSIONS_LABEL"
+                description="JCONFIG_PERMISSIONS_DESC"
+        >
+
+                <field name="rules"
+                        type="rules"
+                        label="JCONFIG_PERMISSIONS_LABEL"
+                        validate="rules"
+                        filter="rules"
+                        component="com_helloworld"
+                        section="component" />
+        </fieldset>
+</config>
