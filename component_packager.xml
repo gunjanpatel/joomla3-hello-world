@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ==================================================================  -->
+<!-- Helloworld packager                                                 -->
+<!-- This PHING build file generates the Helloworld extension package    -->
+<!-- To use in your environment do the following steps:                  -->
+<!--    Change the following variables in build.properties file          -->
+<!--            (copy variables from build.properties.dist )             -->
+<!--    - change the version in variable comp.version                    -->
+<!--    - change the source folder path in variable repo.dir             -->
+<!--    - change the package folder path in variable package.dir         -->
+<!--    - execute this PHING build file                                  -->
+<!-- ==================================================================  -->
+<project name="com_helloworld" default="dist">
+	<!-- Do initialization stuff -->
+	<property file="build.properties" override="true"/>
+
+	<property
+			name="extension"
+			value="Helloworld"
+			override="true"/>
+
+	<property
+			name="version"
+			value="${comp.version}"
+			override="true"/>
+
+	<!-- Folder where the Helloworld repository is located  -->
+	<property
+			name="extpath"
+			value="${repo.dir}"
+			override="true"/>
+
+	<!-- Target dir where packages will be created  -->
+	<property
+			name="targetdir"
+			value="${package.dir}/package-${extension}-v${version}"
+			override="true"/>
+
+	<!-- Version of the Helloworld for witch the module is intended to  -->
+	<property
+			name="joomla_version"
+			value="25"
+			override="true"/>
+
+	<!-- ============================================  -->
+	<!-- Create packages folder                        -->
+	<!-- ============================================  -->
+	<target name="prepare">
+		<!-- Check if the target folder exists. If not, create it -->
+		<if>
+			<available file="${targetdir}" type="dir"/>
+			<then>
+				<echo msg="Removing old ${targetdir}"/>
+				<delete dir="${targetdir}"/>
+			</then>
+		</if>
+		<echo msg="Making directory to store the packages at ${targetdir}"/>
+		<mkdir dir="${targetdir}"/>
+
+	</target>
+
+	<!-- ============================================  -->
+	<!-- Target: build                                 -->
+	<!-- ============================================  -->
+	<!-- Copy the source files to the target folder -->
+
+	<target name="build" depends="prepare">
+
+		<echo msg="Copying INSTALLER files to build directory..."/>
+		<copy todir="${targetdir}">
+			<fileset dir="${extpath}/">
+				<include name="LICENSE.txt"/>
+				<include name="helloworld.xml"/>
+				<!-- <include name="install.php"/> -->
+			</fileset>
+		</copy>
+
+		<echo msg="Copying COMPONENT folder to build directory..."/>
+		<copy todir="${targetdir}/component">
+			<fileset dir="${extpath}/component">
+				<include name="**"/>
+				<exclude name=".*"/>
+			</fileset>
+		</copy>
+
+		<!-- <echo msg="Copying MEDIA folder to build directory..."/>
+		<copy todir="${targetdir}/media">
+			<fileset dir="${extpath}/media">
+				<include name="**"/>
+				<exclude name=".*"/>
+			</fileset>
+		</copy> -->
+
+		<!-- <echo msg="Copying main PLUGINS folder to build directory..."/>
+		<echo msg="Copying helloworld system plugin"/>
+		<copy todir="${targetdir}/plugins/system/helloworld">
+			<fileset dir="${extpath}/plugins/system/helloworld">
+				<include name="**"/>
+				<exclude name=".*"/>
+			</fileset>
+		</copy> -->
+	</target>
+
+	<!-- ============================================  -->
+	<!-- (DEFAULT)  Target: dist                       -->
+	<!-- ============================================  -->
+	<target name="dist" depends="build">
+		<echo msg="Creating ZIP archive..."/>
+
+		<zip destfile="${targetdir}/../${extension}-v${version}_${joomla_version}j.zip">
+			<fileset dir="${targetdir}">
+				<include name="**"/>
+				<exclude name=".*"/>
+			</fileset>
+		</zip>
+
+		<echo msg="Files copied and compressed in build directory OK!"/>
+	</target>
+</project>

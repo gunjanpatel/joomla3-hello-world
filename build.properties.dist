@@ -1,0 +1,6 @@
+comp.name=helloworld
+www.dir=/public_html/joomla3
+comp.version=1.0
+joomla.version=3.2
+repo.dir=/home/tasol/public_html/github/joomla3-hello-world
+package.dir=/home/tasol/Desktop
