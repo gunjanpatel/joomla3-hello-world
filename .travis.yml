@@ -11,6 +11,6 @@ before_script:
   - phpenv rehash
 
 script:
-  - find ./admin -name '*.php' -exec php -l {} \;
-  - find ./site -name '*.php' -exec php -l {} \;
+  - find ./component/admin -name '*.php' -exec php -l {} \;
+  - find ./component/site -name '*.php' -exec php -l {} \;
   - phing -f .travis.xml
