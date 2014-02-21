@@ -9,11 +9,5 @@
 
 // No direct access to this file
 defined('_JEXEC') or die;
-
-define('COM_HELLOWORLD_MEDIA', JPATH_SITE . '/media/helloworld');
-
-// Get an instance of the controller prefixed by HelloWorld
-$controller = JControllerLegacy::getInstance('HelloWorld');
-$input = JFactory::getApplication()->input;
-$controller->execute($input->getcmd('task'));
-$controller->redirect();
+?>
+<h1><?php echo $this->msg; ?></h1>

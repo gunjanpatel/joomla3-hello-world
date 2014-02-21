@@ -9,11 +9,17 @@
 
 // No direct access to this file
 defined('_JEXEC') or die;
-
-define('COM_HELLOWORLD_MEDIA', JPATH_SITE . '/media/helloworld');
-
-// Get an instance of the controller prefixed by HelloWorld
-$controller = JControllerLegacy::getInstance('HelloWorld');
-$input = JFactory::getApplication()->input;
-$controller->execute($input->getcmd('task'));
-$controller->redirect();
+?>
+<?php foreach ($this->items as $i => $item): ?>
+	<tr class="row<?php echo $i % 2; ?>">
+		<td>
+			<?php echo $item->id; ?>
+		</td>
+		<td>
+			<?php echo JHtml::_('grid.id', $i, $item->id); ?>
+		</td>
+		<td>
+			<?php echo $item->greeting; ?>
+		</td>
+	</tr>
+<?php endforeach; ?>

@@ -54,6 +54,9 @@ class HelloWorldViewHelloWorld extends JViewLegacy
 
 		// Display the template
 		parent::display($tpl);
+
+		// Set the document
+		$this->setDocument();
 	}
 
 	/**
