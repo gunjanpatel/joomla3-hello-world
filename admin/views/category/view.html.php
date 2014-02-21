@@ -11,12 +11,19 @@
 defined('_JEXEC') or die;
 
 /**
- * HelloWorlds View
+ * Category View
  *
  * @since  0.0.1
  */
-class HelloWorldViewHelloWorlds extends JViewLegacy
+class HelloWorldViewCategory extends JViewLegacy
 {
+	/**
+	 * View form
+	 *
+	 * @var         form
+	 */
+	protected $form = null;
+
 	/**
 	 * Display the Hello World view
 	 *
@@ -24,11 +31,11 @@ class HelloWorldViewHelloWorlds extends JViewLegacy
 	 *
 	 * @return  void
 	 */
-	function display($tpl = null)
+	public function display($tpl = null)
 	{
-		// Get data from the model
-		$items      = $this->get('Items');
-		$pagination = $this->get('Pagination');
+		// Get the Data
+		$form = $this->get('Form');
+		$item = $this->get('Item');
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
@@ -38,11 +45,11 @@ class HelloWorldViewHelloWorlds extends JViewLegacy
 			return false;
 		}
 
-		// Assign data to the view
-		$this->items      = $items;
-		$this->pagination = $pagination;
+		// Assign the Data
+		$this->form = $form;
+		$this->item = $item;
 
-		// Set the tool-bar and number of found items
+		// Set the toolbar
 		$this->addToolBar();
 
 		// Display the template
@@ -58,16 +65,28 @@ class HelloWorldViewHelloWorlds extends JViewLegacy
 	 */
 	protected function addToolBar()
 	{
-		$title = JText::_('COM_HELLOWORLD_MANAGER_HELLOWORLDS');
+		$input = JFactory::getApplication()->input;
 
-		if ($this->pagination->total)
+		// Hide Joomla Administrator Main menu
+		$input->set('hidemainmenu', true);
+
+		$isNew = ($this->item->id == 0);
+
+		if ($isNew)
 		{
-			$title .= "<span style='font-size: 0.5em; vertical-align: middle;'>(" . $this->pagination->total . ")</span>";
+			$title = JText::_('COM_HELLOWORLD_MANAGER_HELLOWORLD_NEW');
+		}
+		else
+		{
+			$title = JText::_('COM_HELLOWORLD_MANAGER_HELLOWORLD_EDIT');
 		}
 
-		JToolBarHelper::title($title, 'helloworld');
-		JToolBarHelper::deleteList('', 'helloworlds.delete');
-		JToolBarHelper::editList('helloworld.edit');
-		JToolBarHelper::addNew('helloworld.add');
+		JToolBarHelper::title($title, 'category');
+		JToolbarHelper::apply('category.apply');
+		JToolBarHelper::save('category.save');
+		JToolBarHelper::cancel(
+			'category.cancel',
+			$isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE'
+		);
 	}
 }

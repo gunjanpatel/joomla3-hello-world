@@ -14,7 +14,7 @@ defined('_JEXEC') or die;
  *
  * @since  0.0.1
  */
-class HelloWorldTableHelloWorld extends JTable
+class HelloWorldTableHelloWorld extends JTableNested
 {
 	/**
 	 * Constructor
