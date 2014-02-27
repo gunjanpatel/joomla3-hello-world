@@ -10,6 +10,8 @@
 // No direct access to this file
 defined('_JEXEC') or die;
 
+JLoader::import('csv', JPATH_ADMINISTRATOR . '/components/com_helloworld/views');
+
 // Get an instance of the controller prefixed by HelloWorld
 $controller = JControllerLegacy::getInstance('HelloWorld');
 
