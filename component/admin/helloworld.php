@@ -11,6 +11,8 @@
 defined('_JEXEC') or die;
 define('COM_HELLOWORLD_MEDIA', JPATH_SITE . '/media/com_helloworld');
 
+JLoader::import('csv', JPATH_ADMINISTRATOR . '/components/com_helloworld/views');
+
 // Get an instance of the controller prefixed by HelloWorld
 $controller = JControllerLegacy::getInstance('HelloWorld');
 
