@@ -27,7 +27,9 @@ class HelloWorldViewHelloWorld extends JViewLegacy
 	public function display($tpl = null)
 	{
 		// Assign data to the view
-		$this->msg = $this->get('Msg');
+//		$this->msg        = $this->get('Msg');
+		$this->items      = $this->get('Items');
+		$this->pagination = $this->get('Pagination');
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))

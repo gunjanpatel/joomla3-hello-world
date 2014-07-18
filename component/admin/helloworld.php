@@ -9,6 +9,7 @@
 
 // No direct access to this file
 defined('_JEXEC') or die;
+define('COM_HELLOWORLD_MEDIA', JPATH_SITE . '/media/com_helloworld');
 
 JLoader::import('csv', JPATH_ADMINISTRATOR . '/components/com_helloworld/views');
 
