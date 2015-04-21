@@ -5,12 +5,13 @@ php:
 
 before_script:
   - pear install PHP_CodeSniffer
-  - pear channel-discover pear.phing.info
-  - pear install phing/phing
-  - phpenv config-add .travis.ini
-  - phpenv rehash
+  #- pear channel-discover pear.phing.info
+  #- pear install phing/phing
+  #- phpenv config-add .travis.ini
+  #- phpenv rehash
 
 script:
-  - find ./component/admin -name '*.php' -exec php -l {} \;
-  - find ./component/site -name '*.php' -exec php -l {} \;
-  - phing -f .travis.xml
+  #- find ./component/admin -name '*.php' -exec php -l {} \;
+  #- find ./component/site -name '*.php' -exec php -l {} \;
+  #- phing -f .travis.xml
+  - phpcs --report=summary --extensions=php -p -n --standard=.travis/phpcs/joomla/ruleset.xml
