@@ -14,4 +14,4 @@ script:
   #- find ./component/admin -name '*.php' -exec php -l {} \;
   #- find ./component/site -name '*.php' -exec php -l {} \;
   #- phing -f .travis.xml
-  - phpcs --report=summary --extensions=php -p -n --standard=.travis/phpcs/joomla/ruleset.xml
+  - phpcs --report=summary --extensions=php -p -n --standard=.travis/phpcs/joomla/ruleset.xml component/
