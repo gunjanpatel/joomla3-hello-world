@@ -3,7 +3,7 @@
  * @package     HelloWorld.Administrator
  * @subpackage  com_helloworld
  *
- * @copyright   Copyright (C) 2005 - 2014 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -96,7 +96,6 @@ class HelloWorldViewCategories extends JViewLegacy
 			JToolBarHelper::deleteList('', 'Categories.delete');
 		}
 
-
 		JToolbarHelper::publish('categories.publish', 'JTOOLBAR_PUBLISH', true);
 		JToolbarHelper::unpublish('categories.unpublish', 'JTOOLBAR_UNPUBLISH', true);
 		JToolbarHelper::archiveList('categories.archive');
@@ -110,6 +109,7 @@ class HelloWorldViewCategories extends JViewLegacy
 		{
 			JToolBarHelper::preferences('com_helloworld');
 		}
+
 		JHtmlSidebar::setAction('index.php?option=com_helloworld');
 
 		JToolbarHelper::help('JHELP_COMPONENTS_TAGS_MANAGER');
@@ -133,8 +133,9 @@ class HelloWorldViewCategories extends JViewLegacy
 
 			'c.published' => JText::_('JSTATUS'),
 			'c.title' => JText::_('JGLOBAL_TITLE'),
-			//'uc.name' => JText::_('COM_CONTACT_FIELD_LINKED_USER_LABEL'),
-			//'c.access' => JText::_('JGRID_HEADING_ACCESS'),
+			// 'uc.name' => JText::_('COM_CONTACT_FIELD_LINKED_USER_LABEL'),
+			// 'c.access' => JText::_('JGRID_HEADING_ACCESS'),
+
 			'access_level' => JText::_('JGRID_HEADING_ACCESS'),
 			'c.id' => JText::_('JGRID_HEADING_ID')
 		);

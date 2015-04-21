@@ -1,4 +1,11 @@
 <?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_helloworld
+ *
+ * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
 
 // No direct access to this file
 defined('_JEXEC') or die;
@@ -25,7 +32,6 @@ class HelloWorldControllerCategory extends JControllerForm
 	 */
 	public static function ajaxfield($selector='#jform_tags', $allowCustom = true)
 	{
-
 		// Tags field ajax
 		$chosenAjaxSettings = new JRegistry(
 			array(
@@ -38,5 +44,4 @@ class HelloWorldControllerCategory extends JControllerForm
 		);
 		JHtml::_('formbehavior.ajaxchosen', $chosenAjaxSettings);
 	}
-
 }
