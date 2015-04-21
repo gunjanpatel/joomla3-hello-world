@@ -3,7 +3,7 @@
  * @package     HelloWorld.Administrator
  * @subpackage  com_helloworld
  *
- * @copyright   Copyright (C) 2005 - 2014 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -22,12 +22,12 @@ defined('_JEXEC') or die;
 				<li class="a">
 					<?php
 						echo $item->id . "&nbsp&nbsp&nbsp";
-						 echo $item->title . "<br>";
-					?> 
+						echo $item->title . "<br>";
+					?>
 					<img src="<?php echo JURI::root() . '/images/' . $item->image;?>"  alt="not available"  height="150" width="150">
 				</li>
 			</div>
-	
+
 		<?php
 		}
 		?>

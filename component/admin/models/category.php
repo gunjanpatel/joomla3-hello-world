@@ -3,7 +3,7 @@
  * @package     Joomla.Platform
  * @subpackage  Form
  *
- * @copyright   Copyright (C) 2005 - 2014 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 // No direct access to this file
@@ -73,7 +73,8 @@ class HelloWorldModelCategory extends JModelAdmin
 		// Check the session for previously entered form data.
 		$data = JFactory::getApplication()->getUserState(
 		'com_helloworld.edit.category.data',
-		array());
+		array()
+		);
 
 		if (empty($data))
 		{
@@ -220,6 +221,7 @@ class HelloWorldModelCategory extends JModelAdmin
 		if (!$table->rebuild())
 		{
 			$this->setError($table->getError());
+
 			return false;
 		}
 

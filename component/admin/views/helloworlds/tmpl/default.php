@@ -3,7 +3,7 @@
  * @package     HelloWorld.Administrator
  * @subpackage  com_helloworld
  *
- * @copyright   Copyright (C) 2005 - 2014 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -60,7 +60,8 @@ $listDirn      = $this->escape($this->state->get('list.direction'));
 							<?php echo JHtml::_('grid.id', $i, $row->id); ?>
 						</td>
 						<td>
-							<a href="<?php echo $link; ?>" title="<?php echo JText::_('COM_HELLOWORLD_EDIT_HELLOWORLD'); ?>">
+							<a href="<?php echo $link; ?>"
+								title="<?php echo JText::_('COM_HELLOWORLD_EDIT_HELLOWORLD'); ?>">
 								<?php echo $row->greeting; ?>
 							</a>
 						</td>

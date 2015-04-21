@@ -3,7 +3,7 @@
  * @package     HelloWorld.Administrator
  * @subpackage  com_helloworld
  *
- * @copyright   Copyright (C) 2005 - 2014 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -60,9 +60,9 @@ class HelloWorldModelHelloWorld extends JModelList
 
 			// Get a TableHelloWorld instance
 			$table = $this->getTable();
-						
-			JTable::addIncludePath(JPATH_ADMINISTRATOR . '/components/com_helloworld/tables');	
-				
+
+			JTable::addIncludePath(JPATH_ADMINISTRATOR . '/components/com_helloworld/tables');
+
 			// Load the message
 			$table->load($id);
 
@@ -112,7 +112,6 @@ class HelloWorldModelHelloWorld extends JModelList
 		$listOrder = $app->input->get('filter_order_Dir', 'ASC');
 
 		$this->setState('layout', $app->input->getString('layout'));
-
 	}
 
 	/**
