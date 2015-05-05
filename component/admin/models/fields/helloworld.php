@@ -35,8 +35,12 @@ class JFormFieldHelloWorld extends JFormFieldList
 	{
 		$db    = JFactory::getDBO();
 		$query = $db->getQuery(true);
-		$query->select('id,greeting');
+		$query->select('#__helloworld.id as id,greeting,#__categories.title as category,catid');
 		$query->from('#__helloworld');
+		$query->leftJoin('#__categories on catid=#__categories.id');
+
+		// Retrieve only published items
+		$query->where('#__helloworld.published = 1');
 		$db->setQuery((string) $query);
 		$messages = $db->loadObjectList();
 		$options  = array();
@@ -45,7 +49,9 @@ class JFormFieldHelloWorld extends JFormFieldList
 		{
 			foreach ($messages as $message)
 			{
-				$options[] = JHtml::_('select.option', $message->id, $message->greeting);
+				$options[] = JHtml::_('select.option', $message->id, $message->greeting .
+									($message->catid ? ' (' . $message->category . ')' : '')
+									);
 			}
 		}
 

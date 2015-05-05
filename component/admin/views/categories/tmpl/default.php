@@ -89,8 +89,7 @@ $sortFields = $this->getSortFields();
 
 			$item->cat_link = JRoute::_('index.php?option=com_helloworld&view=categories&id=' . $item->id);
 			?>
-				<tr class="row<?php echo $i % 2; ?>"
-					sortable-group-id="<?php echo $item->id; ?>">
+				<tr class="row<?php echo $i % 2; ?>" sortable-group-id="<?php echo $item->id; ?>">
 					<td class="center hidden-phone">
 						<?php echo JHtml::_('grid.id', $i, $item->id); ?>
 					</td>
@@ -112,9 +111,9 @@ $sortFields = $this->getSortFields();
 								);
 								?>
 							<?php endif; ?>
-							<a href="<?php echo JRoute::_('index.php?option=com_helloworld&task=category.edit&id=' . (int) $item->id); ?>">
-							<?php echo str_repeat('<span class="gt">&mdash;', $item->level - 1);
-								echo $this->escape($item->title); ?></a>
+							<a href="<?php echo JRoute::_('index.php?option=com_helloworld&task=category.edit&id='.(int) $item->id); ?>">
+							<?php echo str_repeat('<span class="gt">&mdash;', $item->level-1);
+								 echo $this->escape($item->title); ?></a>
 						</div>
 					</td>
 					<td align="small hidden-phone1">

@@ -135,7 +135,6 @@ class HelloWorldViewCategories extends JViewLegacy
 			'c.title' => JText::_('JGLOBAL_TITLE'),
 			// 'uc.name' => JText::_('COM_CONTACT_FIELD_LINKED_USER_LABEL'),
 			// 'c.access' => JText::_('JGRID_HEADING_ACCESS'),
-
 			'access_level' => JText::_('JGRID_HEADING_ACCESS'),
 			'c.id' => JText::_('JGRID_HEADING_ID')
 		);

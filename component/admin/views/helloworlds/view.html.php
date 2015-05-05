@@ -26,10 +26,14 @@ class HelloWorldViewHelloWorlds extends JViewLegacy
 	 */
 	public function display($tpl = null)
 	{
+		// Get application
+		$app     = JFactory::getApplication();
+		$context = "helloworld.list.admin.helloworld";
+
 		// Get data from the model
-		$this->items		= $this->get('Items');
-		$this->pagination	= $this->get('Pagination');
-		$this->state		= $this->get('State');
+		$this->items         = $this->get('Items');
+		$this->pagination    = $this->get('Pagination');
+		$this->state         = $this->get('State');
 		$this->filterForm    = $this->get('FilterForm');
 		$this->activeFilters = $this->get('ActiveFilters');
 
@@ -41,11 +45,17 @@ class HelloWorldViewHelloWorlds extends JViewLegacy
 			return false;
 		}
 
+		// Set the submenu
+		HelloWorldHelper::addSubmenu('helloworlds');
+
 		// Set the tool-bar and number of found items
 		$this->addToolBar();
 
 		// Display the template
 		parent::display($tpl);
+
+		// Set the document
+		$this->setDocument();
 	}
 
 	/**
@@ -64,10 +74,22 @@ class HelloWorldViewHelloWorlds extends JViewLegacy
 			$title .= "<span style='font-size: 0.5em; vertical-align: middle;'>(" . $this->pagination->total . ")</span>";
 		}
 
-		JToolBarHelper::title($title, 'helloworld');
-		JToolBarHelper::deleteList('', 'helloworlds.delete');
-		JToolBarHelper::editList('helloworld.edit');
-		JToolBarHelper::addNew('helloworld.add');
-		JToolBarHelper::back('CSV', 'index.php?option=com_helloworld&format=csv');
+			JToolBarHelper::title($title, 'helloworld');
+			JToolBarHelper::addNew('helloworld.add', 'JTOOLBAR_NEW');
+			JToolBarHelper::editList('helloworld.edit', 'JTOOLBAR_EDIT');
+			JToolBarHelper::deleteList('', 'helloworlds.delete', 'JTOOLBAR_DELETE');
+			JToolBarHelper::divider();
+			JToolBarHelper::preferences('com_helloworld');
+	}
+
+	/**
+	 * Method to set up the document properties
+	 *
+	 * @return void
+	 */
+	protected function setDocument()
+	{
+		$document = JFactory::getDocument();
+		$document->setTitle(JText::_('COM_HELLOWORLD_ADMINISTRATION'));
 	}
 }

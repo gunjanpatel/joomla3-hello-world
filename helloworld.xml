@@ -42,6 +42,10 @@
 		<folder>language</folder>
 	</files>
 
+	<media destination="com_helloworld" folder="media">
+		<folder>images</folder>
+	</media>
+
 	<administration>
 		<!-- Administration Menu Section -->
 		<menu>COM_HELLOWORLD_MENU</menu>
@@ -54,6 +58,8 @@
 			<filename>index.html</filename>
 			<filename>helloworld.php</filename>
 			<filename>controller.php</filename>
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
 			<!-- SQL files section -->
 			<folder>sql</folder>
 			<!-- tables files section -->
@@ -66,6 +72,8 @@
 			<folder>language</folder>
 			<!-- controllers files section -->
 			<folder>controllers</folder>
+			<!-- helpers files section -->
+			<folder>helpers</folder>
 		</files>
 	</administration>
 
