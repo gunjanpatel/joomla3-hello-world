@@ -3,7 +3,7 @@
  * @package     HelloWorld.Administrator
  * @subpackage  com_helloworld
  *
- * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2014 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
@@ -26,6 +26,7 @@ JHtml::_('formbehavior.chosen', 'select');
 
 	<div class="row-fluid">
 	<?php foreach ($this->form->getFieldset() as $field) : ?>
+
 		<?php if ($field->hidden) : ?>
 		<?php echo $field->input;?>
 		<?php endif; ?>
